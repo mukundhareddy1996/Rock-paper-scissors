@@ -29,9 +29,9 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
     switch (humanChoice){
-    case "Rock":
+    case "rock":
         switch (computerChoice){
-            case "Rock":
+            case "rock":
                 console.log("Please Try Again"); 
                 console.log(`Computer Score : ${ComputerScore}\n HumanScore : ${HumanScore}`);
                 break;
@@ -42,14 +42,14 @@ function playRound(humanChoice, computerChoice){
                 break;
         }
         break;
-    case "Paper":
+    case "paper":
         switch (computerChoice){
-            case "Rock":
+            case "rock":
                 console.log("Computer Won");
                 ComputerScore += 1;
                 console.log(`Computer Score : ${ComputerScore}\n HumanScore : ${HumanScore}`);
                 break;
-            case "Paper":
+            case "paper":
                 console.log("Please Try Again"); 
                 console.log(`Computer Score : ${ComputerScore}\n HumanScore : ${HumanScore}`);
                 break;
@@ -60,13 +60,13 @@ function playRound(humanChoice, computerChoice){
                 break;
         }
         break;
-    case "Scissor":
+    case "scissor":
         switch (computerChoice){
-            case "Paper":
+            case "paper":
                 console.log("Please Try Again"); 
                 console.log(`Computer Score : ${ComputerScore}\n HumanScore : ${HumanScore}`);
                 break;
-            case "Rock":
+            case "rock":
                 console.log("Computer Won");
                 ComputerScore += 1;
                 console.log(`Computer Score : ${ComputerScore}\n HumanScore : ${HumanScore}`);
@@ -87,7 +87,15 @@ let counter =0;
 while (counter<5){
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
-    playRound(humanChoice,computerChoice)
+    playRound(humanChoice.toLowerCase(),computerChoice.toLowerCase())
     counter++;
+}
+
+if (ComputerScore > HumanScore ){
+    alert("Computer Won");
+}else if(ComputerScore < HumanScore){
+    alert("You won");
+}else{
+    alert("Match Tied, please play")
 }
 
